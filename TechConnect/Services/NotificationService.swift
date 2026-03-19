@@ -5,7 +5,7 @@ import UIKit
 /// Handles local notification permission for both apps.
 /// FCM token registration is handled by AppDelegate in the Engineer app target.
 @MainActor
-class NotificationService: NSObject, ObservableObject {
+class NotificationService: NSObject {
     static let shared = NotificationService()
 
     private override init() {}

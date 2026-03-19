@@ -1,11 +1,12 @@
 import Foundation
-import FirebaseAuth
-import FirebaseMessaging
 import UserNotifications
+import UIKit
 
-/// Handles FCM registration and notification permission for the Engineer app.
+/// Engineer-app notification service.
+/// FCM token sync will be added here once FirebaseMessaging SPM product is enabled
+/// and a paid Apple Developer account is configured for APNs.
 @MainActor
-class NotificationService: NSObject, ObservableObject {
+class NotificationService: NSObject {
     static let shared = NotificationService()
 
     private override init() {}
@@ -15,19 +16,6 @@ class NotificationService: NSObject, ObservableObject {
             guard granted else { return }
             DispatchQueue.main.async {
                 UIApplication.shared.registerForRemoteNotifications()
-            }
-            // FCM token will arrive via AppDelegate.messaging(_:didReceiveRegistrationToken:)
-        }
-    }
-
-    /// Call this once to fetch the current FCM token and persist it.
-    /// Handles the case where the token already exists before the delegate fires.
-    func syncFCMToken() {
-        Messaging.messaging().token { token, error in
-            guard let token, error == nil,
-                  let uid = Auth.auth().currentUser?.uid else { return }
-            Task {
-                try? await FirestoreService.shared.updateFCMToken(userId: uid, token: token)
             }
         }
     }

@@ -6,6 +6,13 @@
 	objectVersion = 77;
 	objects = {
 
+/* Begin PBXBuildFile section */
+		C0B832AB2F6B58D000B98790 /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = C065FA012F68CB4B00A678F6 /* FirebaseAuth */; };
+		C0B832AC2F6B58D000B98790 /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = C065FA022F68CB4B00A678F6 /* FirebaseFirestore */; };
+		C0B832AD2F6B58D000B98790 /* FirebaseCore in Frameworks */ = {isa = PBXBuildFile; productRef = C065FA032F68CB4B00A678F6 /* FirebaseCore */; };
+		C0B832AE2F6B58D000B98790 /* GoogleSignIn in Frameworks */ = {isa = PBXBuildFile; productRef = C065FA042F68CB4B00A678F6 /* GoogleSignIn */; };
+/* End PBXBuildFile section */
+
 /* Begin PBXContainerItemProxy section */
 		C065F54F2F68CB4B00A678F6 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
@@ -52,6 +59,10 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C0B832AD2F6B58D000B98790 /* FirebaseCore in Frameworks */,
+				C0B832AC2F6B58D000B98790 /* FirebaseFirestore in Frameworks */,
+				C0B832AB2F6B58D000B98790 /* FirebaseAuth in Frameworks */,
+				C0B832AE2F6B58D000B98790 /* GoogleSignIn in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -112,6 +123,10 @@
 			);
 			name = TechConnect;
 			packageProductDependencies = (
+				C065FA012F68CB4B00A678F6 /* FirebaseAuth */,
+				C065FA022F68CB4B00A678F6 /* FirebaseFirestore */,
+				C065FA032F68CB4B00A678F6 /* FirebaseCore */,
+				C065FA042F68CB4B00A678F6 /* GoogleSignIn */,
 			);
 			productName = TechConnect;
 			productReference = C065F53F2F68CB4A00A678F6 /* TechConnect.app */;
@@ -195,6 +210,10 @@
 			);
 			mainGroup = C065F5362F68CB4A00A678F6;
 			minimizedProjectReferenceProxies = 1;
+			packageReferences = (
+				C065FA002F68CB4B00A678F6 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
+				C065FA052F68CB4B00A678F6 /* XCRemoteSwiftPackageReference "GoogleSignIn-iOS" */,
+			);
 			preferredProjectObjectVersion = 77;
 			productRefGroup = C065F5402F68CB4A00A678F6 /* Products */;
 			projectDirPath = "";
@@ -395,11 +414,14 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = TechConnect/TechConnect.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = NX455AA4HG;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSFaceIDUsageDescription = "TechConnect uses Face ID to securely sign you in.";
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "TechConnect needs your location to show nearby service requests and enable live tracking.";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -427,11 +449,14 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = TechConnect/TechConnect.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = NX455AA4HG;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSFaceIDUsageDescription = "TechConnect uses Face ID to securely sign you in.";
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "TechConnect needs your location to show nearby service requests and enable live tracking.";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -578,6 +603,48 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		C065FA002F68CB4B00A678F6 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/firebase/firebase-ios-sdk";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 11.0.0;
+			};
+		};
+		C065FA052F68CB4B00A678F6 /* XCRemoteSwiftPackageReference "GoogleSignIn-iOS" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/google/GoogleSignIn-iOS";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 8.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		C065FA012F68CB4B00A678F6 /* FirebaseAuth */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = C065FA002F68CB4B00A678F6 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseAuth;
+		};
+		C065FA022F68CB4B00A678F6 /* FirebaseFirestore */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = C065FA002F68CB4B00A678F6 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseFirestore;
+		};
+		C065FA032F68CB4B00A678F6 /* FirebaseCore */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = C065FA002F68CB4B00A678F6 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseCore;
+		};
+		C065FA042F68CB4B00A678F6 /* GoogleSignIn */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = C065FA052F68CB4B00A678F6 /* XCRemoteSwiftPackageReference "GoogleSignIn-iOS" */;
+			productName = GoogleSignIn;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = C065F5372F68CB4A00A678F6 /* Project object */;
 }

@@ -1,0 +1,36 @@
+rules_version = '2';
+
+service cloud.firestore {
+  match /databases/{database}/documents {
+
+    // Users: read by any authenticated user, write only by owner
+    match /users/{userId} {
+      allow read: if request.auth != null;
+      allow write: if request.auth != null && request.auth.uid == userId;
+    }
+
+    // Service requests: any auth user can read/create; only relevant parties can update
+    match /serviceRequests/{requestId} {
+      allow read: if request.auth != null;
+      allow create: if request.auth != null
+        && request.resource.data.customerId == request.auth.uid;
+      allow update: if request.auth != null
+        && (
+          // Customer can cancel their own request
+          (resource.data.customerId == request.auth.uid)
+          // Engineer who accepted can update status + location
+          || (resource.data.engineerId == request.auth.uid)
+          // Any engineer can claim an open request (transaction handles race condition)
+          || (resource.data.status == "open" && request.resource.data.engineerId == request.auth.uid)
+        );
+    }
+
+    // Reviews: auth users can read; customers can create (one per request)
+    match /reviews/{reviewId} {
+      allow read: if request.auth != null;
+      allow create: if request.auth != null
+        && request.resource.data.customerId == request.auth.uid;
+      allow update, delete: if false;
+    }
+  }
+}

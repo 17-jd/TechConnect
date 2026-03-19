@@ -1,0 +1,13 @@
+*.DS_Store
+.env
+.env.local
+functions/node_modules/
+admin-dashboard/node_modules/
+admin-dashboard/.next/
+admin-dashboard/.wrangler/
+GoogleService-Info.plist
+TechConnect/GoogleService-Info.plist
+*.xcuserstate
+xcuserdata/
+.claude/
+serviceAccountKey.json

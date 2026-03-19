@@ -3,14 +3,14 @@ import FirebaseCore
 import GoogleSignIn
 
 @main
-struct TechConnectApp: App {
+struct TechConnectCustomerApp: App {
     init() {
         FirebaseApp.configure()
     }
 
     var body: some Scene {
         WindowGroup {
-            RootView()
+            CustomerRootView()
                 .onOpenURL { url in
                     GIDSignIn.sharedInstance.handle(url)
                 }

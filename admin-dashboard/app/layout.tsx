@@ -3,6 +3,9 @@ import "./globals.css";
 import Sidebar from "@/components/Sidebar";
 import AuthGuard from "@/components/AuthGuard";
 
+export const dynamic = "force-dynamic";
+export const runtime = "edge";
+
 export const metadata: Metadata = {
   title: "TechConnect Admin",
   description: "Admin dashboard for TechConnect",

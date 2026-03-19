@@ -1,6 +1,4 @@
 name = "techconnect-admin"
 compatibility_date = "2024-09-23"
 compatibility_flags = ["nodejs_compat"]
-
-[vars]
-NEXT_PUBLIC_FIREBASE_PROJECT_ID = ""   # fill in after deploy
+pages_build_output_dir = ".vercel/output/static"

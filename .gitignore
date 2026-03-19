@@ -11,3 +11,5 @@ TechConnect/GoogleService-Info.plist
 xcuserdata/
 .claude/
 serviceAccountKey.json
+*.vercel*
+admin-dashboard/next-env.d.ts

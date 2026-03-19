@@ -11,12 +11,16 @@
     "preview": "npx @cloudflare/next-on-pages && wrangler pages dev .vercel/output/static"
   },
   "dependencies": {
-    "next": "14.2.5",
-    "react": "^18",
-    "react-dom": "^18",
+    "@tailwindcss/postcss": "^4.2.2",
+    "autoprefixer": "^10.4.27",
     "firebase": "^10.12.0",
     "firebase-admin": "^12.2.0",
-    "recharts": "^2.12.7"
+    "next": "^15.1.6",
+    "postcss": "^8.5.8",
+    "react": "^18",
+    "react-dom": "^18",
+    "recharts": "^2.12.7",
+    "tailwindcss": "^4.2.2"
   },
   "devDependencies": {
     "@cloudflare/next-on-pages": "^1.13.1",

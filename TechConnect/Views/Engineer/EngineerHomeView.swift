@@ -93,7 +93,6 @@ struct EngineerHomeView: View {
             .onAppear {
                 LocationService.shared.requestPermission()
                 NotificationService.shared.requestPermissionAndRegister()
-                NotificationService.shared.syncFCMToken()
                 viewModel.startListening()
             }
         }

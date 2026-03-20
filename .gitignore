@@ -13,3 +13,4 @@ xcuserdata/
 serviceAccountKey.json
 *.vercel*
 admin-dashboard/next-env.d.ts
+functions/lib/

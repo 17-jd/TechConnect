@@ -177,11 +177,17 @@ gcloud tasks queues create wave-notifications --location=us-central1
 ```
 
 ## TODO (Next Session)
-1. **Deploy Firebase Functions** — `cd functions && npm install && firebase deploy --only functions,firestore:rules,firestore:indexes`
-2. **Create Cloud Tasks queue** — `gcloud tasks queues create wave-notifications --location=us-central1`
+1. **Deploy Firebase Functions** — Firestore rules + indexes deployed ✅, `processWave` HTTP function deployed ✅. Still failing: `onRequestCreated` and `onRequestAccepted` Firestore triggers (Eventarc Service Agent permissions keep timing out). Run `firebase deploy --only functions` to retry — it usually works after a few attempts.
+2. **Create Cloud Tasks queue** — run `gcloud tasks queues create wave-notifications --location=us-central1` (gcloud CLI installed at `~/google-cloud-sdk`, source `~/google-cloud-sdk/path.zsh.inc` first if needed)
 3. **Test wave notifications end-to-end** — post a request, check Cloud Functions logs
 4. **Push notifications (later)** — upgrade to paid Apple Developer account ($99/yr), add FirebaseMessaging SPM product to engineer target, enable APNs capability in Xcode
 5. **Admin dashboard map page** — add Google Maps API key, implement live engineer map
+
+## Setup Notes (for new sessions)
+- Firebase CLI: installed globally via npm (`firebase login` already done)
+- gcloud CLI: installed at `~/google-cloud-sdk` — run `source ~/google-cloud-sdk/path.zsh.inc` to activate in terminal
+- Firebase project: `f1f2-1d447` — run `firebase use f1f2-1d447` if not set
+- Cloudflare: logged in via wrangler (`npx wrangler whoami` to verify)
 
 ## Build Commands
 - iOS: Open `TechConnect.xcodeproj` in Xcode, select target (TechConnect or TechConnectEngineer), Cmd+R
